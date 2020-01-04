@@ -1,0 +1,35 @@
+docker build -t helloworld:1.0 .
+docker images
+docker inspect helloworld:1.0
+
+
+docker create helloworld:1.0 .
+docker ps -a
+docker start <container_id>
+
+docker stop <container_id>
+docker rm <container_id>
+
+docker create --name web1 helloworld:1.0 .
+
+docker run -p 8080:80 --name web01 helloworld:1.0
+docker run -p 127.0.0.1:8080:80 --name web01 helloworld:1.0	//Acceso solo desde la máquina local
+
+
+docker exec web01 <command>
+docker exec -it web01 bash
+
+	/var/log/nginx		//Ubicación de logs nginx
+	tail -f *		//Comando para leer los logs, tiempo real
+
+
+
+docker volume create <volume_name>
+docker inspect <volume_name>
+docker run -p 8080:80 --mount source=<volume_name>,target=/var/www/html --name web01 helloworld:1.0
+docker volume ls
+docker volume prune			//Borra volúmenes no usados
+
+
+
+docker run -p 8080:80 -e db_user=myuser --name web01 helloworld:1.0	//variable de entorno  param -e

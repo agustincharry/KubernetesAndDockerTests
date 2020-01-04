@@ -1,0 +1,14 @@
+minikube start
+minikube addons list
+minikube dashboard
+minikube ssh
+
+
+kubectl get nodes
+kubectl get all
+
+kubectl apply -f <file.yaml>
+kubectl run --image=nginx:1.7.9 --port=80 --replicas=2 nginx-deployment
+
+kubectl delete -f <file.yaml>
+kubectl delete deployment <deployment_name>
