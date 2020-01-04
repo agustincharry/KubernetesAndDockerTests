@@ -12,3 +12,17 @@ kubectl run --image=nginx:1.7.9 --port=80 --replicas=2 nginx-deployment
 
 kubectl delete -f <file.yaml>
 kubectl delete deployment <deployment_name>
+
+
+kubectl get pods -o wide		//-o muestra una información extra
+
+kubectl exec -it <pod_name> bash	//Obtener una consola en un pod
+
+kubectl port-forward <pod_name> 8080:80
+
+kubectl get pods --show-labels		//Mostrar labels
+
+kubectl get pods --show-labels --selector project=aplication2	//Buscar por un label específico
+
+
+kubectl delete rs <replicaset_name> --cascade=false		//Borra el replicaSet SIN borrar los pods
