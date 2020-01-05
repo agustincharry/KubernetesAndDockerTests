@@ -26,3 +26,23 @@ kubectl get pods --show-labels --selector project=aplication2	//Buscar por un la
 
 
 kubectl delete rs <replicaset_name> --cascade=false		//Borra el replicaSet SIN borrar los pods
+
+
+kubectl set image deployment/<deployment_name> <container_name>=<new_image_name>	//Cambiar imagen Docker de contenedor
+
+
+kubectl rollout status deployment/<deployment_name>				//Monitorear status de un deployment
+kubectl rollout history deployment/<deployment_name>				//Historal de cambios de un deployment
+kubectl rollout history deployment/<deployment_name> --revision=1		//Describe una revision del historial de cambios
+kubectl rollout undo deployment/<deployment_name>				//Vuelve a la ultima versión del deployment
+kubectl rollout undo deployment/<deployment_name> --to-revision=1		//Vuelve a una versión específica del deployment
+
+
+
+kubectl create configmap test-cm --from-literal variable1=valor1		//Crear configmap desde literal
+kubectl create configmap nginx-config-dir --from-file=nginx-config-map		//Crear configmap desde archivos
+kubectl get cm <configmap_name> -o yaml						//Ver detalles del config map
+
+
+
+kubectl create secret generic credenciales --from-file=secrets/username.txt --from-file=secrets/password.txt
