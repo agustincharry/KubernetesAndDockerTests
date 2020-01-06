@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-requests
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.7.9
+      ports:
+        - containerPort: 80
+      resources:
+        requests:
+          memory: 512M
+          cpu: 0.2
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-limits
+spec:
+  restartPolicy: Always
+  containers:
+    - name: nginx
+      image: nginx:1.7.9
+      ports:
+        - containerPort: 80
+      resources:
+        limits:
+          memory: 128Mi
+          cpu: 500m

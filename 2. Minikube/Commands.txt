@@ -46,3 +46,6 @@ kubectl get cm <configmap_name> -o yaml						//Ver detalles del config map
 
 
 kubectl create secret generic credenciales --from-file=secrets/username.txt --from-file=secrets/password.txt
+
+
+minikube.exe addons enable metrics-server		//Habilitar addon para monitorear recursos usados
